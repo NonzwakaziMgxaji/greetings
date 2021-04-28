@@ -16,23 +16,32 @@
                 <label for="name">Name</label><input class="userName" type="text" id="name" name="name" placeholder="Enter your name"><br><br>
             </div>
 
-            <span class="greetCount "><span class="counter">0</span> </span>
+            <span class="counter">0</span>
 
             <div class=inputs>
                 <input class= "radio" type="radio" name="language" id="english" value="english">
-                <label for="English">English</label><br><br>
+                <label for="english">English</label><br><br>
                 <input class= "radio" type="radio" name="language" id="afrikaans" value="afrikaans">
                 <label for="afrikaans">Afrikaans</label><br><br>
                 <input class= "radio" type="radio" name="language" id="isixhosa" value="isixhosa">
                 <label for="isixhosa">IsiXhosa</label><br><br>
             </div>
             <!-- <input type = "submit" value = "Greet Me"> -->
+            <div class ="buttons">
             <button class="greetBtn" type="button">Greet Me</button>
-            <p class = ".greeting">Hello</p>
+            <button class = "resetBtn" type="button">Reset</button>
+            </div>
+            
+            
+
+        <h2><span class = "greeting"></span></h2>
         </form>
     </div>
 
     <script src="./greet.js"></script>
+    <!-- <script src="./greetFactory.js"></script> -->
+    <!-- <script src="d.js"></script> -->
+
 </body>
 
 </html>

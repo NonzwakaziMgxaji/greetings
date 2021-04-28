@@ -12,19 +12,21 @@ h1{
     color: #3E3F47;
 }
 
+h2{
+    color: #3E3F47;
+}
+
 .textbox{
     /* text-align: center; */
     width: 100%;
     /* margin: 10px; */
 }
 
-
 label[for="name"]{
     font-weight: bold;
     color: #3E3F47;
 
 }
-
 
 input[type="text"]{
     width: 50%;
@@ -36,12 +38,24 @@ input[type="text"]{
 .counter{
     float: right;
     font-weight: bold;
-    transform: scale(3);
+    transform: scale(2);
 }
 
-.greetBtn{
-    float: right;
-}
+/* .btn1{
+    text-align: center;
+} */
+
+/* .greetBtn{
+    position: absolute;
+} */
+
+/* .btn2{
+    text-align: center;
+} */
+
+/* .resetBtn{
+    position: absolute;
+} */
 
 form{
     margin: 10px;
