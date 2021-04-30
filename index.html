@@ -11,36 +11,34 @@
 <body>
     <div class="container">
         <h1>Greeting</h1>
-        <form action="">
+        <form name="theForm" action="">
             <div class="textbox">
-                <label for="name">Name</label><input class="userName" type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+                <label for="name">Name</label>
+                <input class="userName" type="text" id="name" name="name" placeholder="Enter your name" onkeypress="return (event.charCode > 64 && 
+                event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" title="Please enter name in correct format using characters in the alphabet"><br><br>
             </div>
 
-            <span class="counter">0</span>
+            <span class="counter" id="counter">0</span>
 
             <div class=inputs>
-                <input class= "radio" type="radio" name="language" id="english" value="english">
+                <input class="radio" type="radio" name="language" id="english" value="english">
                 <label for="english">English</label><br><br>
-                <input class= "radio" type="radio" name="language" id="afrikaans" value="afrikaans">
+                <input class="radio" type="radio" name="language" id="afrikaans" value="afrikaans">
                 <label for="afrikaans">Afrikaans</label><br><br>
-                <input class= "radio" type="radio" name="language" id="isixhosa" value="isixhosa">
+                <input class="radio" type="radio" name="language" id="isixhosa" value="isixhosa">
                 <label for="isixhosa">IsiXhosa</label><br><br>
             </div>
-            <!-- <input type = "submit" value = "Greet Me"> -->
-            <div class ="buttons">
-            <button class="greetBtn" type="button">Greet Me</button>
-            <button class = "resetBtn" type="button">Reset</button>
+        
+            <div class="buttons">
+                <button class="greetBtn" type="button">Greet Me</button>
+                <button class="resetBtn" type="button">Reset</button>
             </div>
-            
-            
 
-        <h2><span class = "greeting"></span></h2>
+            <h2><span class="greeting" id="greetID"></span></h2>
         </form>
     </div>
 
     <script src="./greet.js"></script>
-    <!-- <script src="./greetFactory.js"></script> -->
-    <!-- <script src="d.js"></script> -->
 
 </body>
 

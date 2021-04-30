@@ -18,12 +18,12 @@ function nameVal(name) {
 
 button.addEventListener("click", function () {
   var greeting = greet.value;
-  nameVal(nameEntered.value);
-  
+
   var rad = document.querySelector("input[name='language']:checked");
-  if (rad) {
+  if (rad && nameEntered.value) {
     var selectedRad = rad.value;
-    
+    nameVal(nameEntered.value);
+
     if (selectedRad === "english") {
       greeting = "Hello, " + nameEntered.value;
     }
@@ -36,9 +36,22 @@ button.addEventListener("click", function () {
 
     //localStorage to keep the names greeted
     localStorage.setItem('names', JSON.stringify(namesGreeted));
-
+    counter();
     //assign counter func(which returns the number of names greeted) to greetCounter
     greetCounter = counter();
+
+    //alert if radio buttons are not selected and name fields are empty
+  } else {
+     if (!rad && !nameEntered.value) {
+      alert('Please select a language & enter your name!');
+      greeting = "";
+    } else if (!rad) {
+      alert('Please select a language');
+      greeting = "";
+    } else if (!nameEntered.value && rad) {
+      alert('Please enter your name!');
+      greeting = "";
+    }
   }
 
   //display the greeting or contents of greet and HTML element 
@@ -59,11 +72,7 @@ function counter() {
   var key = Object.keys(namesGreeted);
   return key.length;
 }
-
-
-// if (localStorage['names']){
-//   greetCounter = Number(localStorage['names']);
-// }
+counter();
 
 //resets counter to zero
 reset.addEventListener("click", function () {
