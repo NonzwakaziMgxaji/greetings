@@ -17,9 +17,7 @@ h2{
 }
 
 .textbox{
-    /* text-align: center; */
     width: 100%;
-    /* margin: 10px; */
 }
 
 label[for="name"]{
@@ -30,7 +28,6 @@ label[for="name"]{
 input[type="text"]{
     width: 50%;
     border: 2px solid #3E3F47;
-    /* padding: 5px; */
     margin-left: 5px;
 }
 
@@ -39,22 +36,6 @@ input[type="text"]{
     font-weight: bold;
     transform: scale(2);
 }
-
-/* .btn1{
-    text-align: center;
-} */
-
-/* .greetBtn{
-    position: absolute;
-} */
-
-/* .btn2{
-    text-align: center;
-} */
-
-/* .resetBtn{
-    position: absolute;
-} */
 
 form{
     margin: 10px;
@@ -69,10 +50,4 @@ form{
     input[type="radio"]{
         transform: scale(2);
     }
-
-    /* label[for="english"]{
-        font: 50px;
-    
-    } */
-
 }
