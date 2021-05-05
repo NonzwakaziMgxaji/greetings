@@ -4,52 +4,46 @@ var greet = document.querySelector(".greeting");
 var count = document.querySelector(".counter");
 var button = document.querySelector(".greetBtn");
 var reset = document.querySelector(".resetBtn");
+var error = document.querySelector(".errorMsg");
 
 var existingNames;
 var namesGreeted = existingNames || {};
 var greetCounter = 0;
 
-//check if this user was already greeted before
-function nameVal(name) {
-  if (namesGreeted[name] === undefined) {
-    namesGreeted[name] = 0;
-  }
-}
-
+let greetInst = greetFactory();
 button.addEventListener("click", function () {
   var greeting = greet.value;
 
   var rad = document.querySelector("input[name='language']:checked");
   if (rad && nameEntered.value) {
     var selectedRad = rad.value;
-    nameVal(nameEntered.value);
 
-    if (selectedRad === "english") {
-      greeting = "Hello, " + nameEntered.value;
-    }
-    else if (selectedRad === "afrikaans") {
-      greeting = "Goeie môre, " + nameEntered.value;
-    }
-    else if (selectedRad === "isixhosa") {
-      greeting = "Molo, " + nameEntered.value;
-    }
-
-    //localStorage to keep the names greeted
+    greetInst.nameVal(nameEntered.value);
+    namesGreeted = greetInst.getNameGreeted();
+    greeting = greetInst.setGreeting(nameEntered.value, selectedRad);
+    greetCounter = greetInst.getCounter();
+    
     localStorage.setItem('names', JSON.stringify(namesGreeted));
-    counter();
-    //assign counter func(which returns the number of names greeted) to greetCounter
-    greetCounter = counter();
-
+    
+    // greeting = "";
+    error.innerHTML = ''
     //alert if radio buttons are not selected and name fields are empty
   } else {
-     if (!rad && !nameEntered.value) {
-      alert('Please select a language & enter your name!');
-      greeting = "";
+    if (!rad && !nameEntered.value) {
+      // error.innerHTML = ('Please select a language & enter your name!');
+    error.innerHTML =  setTimeout(function(){  }, 3000);
+
+      // function myFunction(){
+      //   alert("a");
+      // }
+      // error.innerHTML = myFunction();
+      // setTimeout(function(){$('errorMessage').hide()},1000);
+      // greeting = "";
     } else if (!rad) {
-      alert('Please select a language');
+     error.innerHTML = 'Please select a language';
       greeting = "";
     } else if (!nameEntered.value && rad) {
-      alert('Please enter your name!');
+      error.innerHTML = 'please enter name to continue'
       greeting = "";
     }
   }
@@ -68,11 +62,11 @@ if (localStorage['names']) {
 }
 
 // objects keys method returns an array of a given object's own enumerable property names
-function counter() {
-  var key = Object.keys(namesGreeted);
-  return key.length;
-}
-counter();
+// function counter() {
+//   var key = Object.keys(namesGreeted);
+//   return key.length;
+// }
+// counter();
 
 //resets counter to zero
 reset.addEventListener("click", function () {

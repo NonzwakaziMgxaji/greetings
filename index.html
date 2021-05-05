@@ -14,18 +14,20 @@
         <form name="theForm" action="">
             <div class="textbox">
                 <label for="name">Name</label>
-                <input class="userName" type="text" id="name" name="name" placeholder="Enter your name" onkeypress="return (event.charCode > 64 && 
-                event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" title="Please enter name in correct format using characters in the alphabet"><br><br>
+                <input class="userName" type="text" id="name" name="name" placeholder="Enter your name" required onkeypress="return (event.charCode > 64 && 
+                event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"><br><br>
             </div>
+
+            <span class="errorMsg" id="errorMessage" onclick="myVar=setTimeout(myFunction,3000)"></span>
 
             <span class="counter" id="counter">0</span>
 
             <div class=inputs>
-                <input class="radio" type="radio" name="language" id="english" value="english">
+                <input class="radio" type="radio" name="language" id="english" value="english" required>
                 <label for="english">English</label><br><br>
-                <input class="radio" type="radio" name="language" id="afrikaans" value="afrikaans">
+                <input class="radio" type="radio" name="language" id="afrikaans" value="afrikaans" required>
                 <label for="afrikaans">Afrikaans</label><br><br>
-                <input class="radio" type="radio" name="language" id="isixhosa" value="isixhosa">
+                <input class="radio" type="radio" name="language" id="isixhosa" value="isixhosa" required>
                 <label for="isixhosa">IsiXhosa</label><br><br>
             </div>
         
@@ -35,10 +37,12 @@
             </div>
 
             <h2><span class="greeting" id="greetID"></span></h2>
+
         </form>
     </div>
 
-    <script src="./greet.js"></script>
+    <script src = "greetingFactory.js"></script>
+    <script src="greet.js"></script>
 
 </body>
 
