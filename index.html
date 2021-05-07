@@ -10,38 +10,42 @@
 
 <body>
     <div class="container">
-        <h1>Greeting</h1>
+        <h1>GREETING</h1>
         <form name="theForm" action="">
+            <span class="errorMsg" id="errorMessage"></span><br><br>
+
             <div class="textbox">
                 <label for="name">Name</label>
-                <input class="userName" type="text" id="name" name="name" placeholder="Enter your name" required onkeypress="return (event.charCode > 64 && 
-                event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"><br><br>
+                <input class="userName" type="text" id="name" name="name" placeholder="Enter your name" required
+                    onkeypress="return (event.charCode > 64 && 
+                event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)">
             </div>
 
-            <span class="errorMsg" id="errorMessage" onclick="myVar=setTimeout(myFunction,3000)"></span>
+            <span class="counterName">COUNTER:</span><br><br>
 
-            <span class="counter" id="counter">0</span>
+            <div class="counter">
+                <span id="counter">0</span>
+            </div>
 
             <div class=inputs>
                 <input class="radio" type="radio" name="language" id="english" value="english" required>
-                <label for="english">English</label><br><br>
+                <label class="radioName" for="english">English</label><br><br>
                 <input class="radio" type="radio" name="language" id="afrikaans" value="afrikaans" required>
-                <label for="afrikaans">Afrikaans</label><br><br>
+                <label class="radioName" for="afrikaans">Afrikaans</label><br><br>
                 <input class="radio" type="radio" name="language" id="isixhosa" value="isixhosa" required>
-                <label for="isixhosa">IsiXhosa</label><br><br>
-            </div>
-        
+                <label class="radioName" for="isixhosa">IsiXhosa</label>
+            </div><br>
+
             <div class="buttons">
                 <button class="greetBtn" type="button">Greet Me</button>
                 <button class="resetBtn" type="button">Reset</button>
-            </div>
+            </div><br><br>
 
-            <h2><span class="greeting" id="greetID"></span></h2>
-
+            <span class="greeting" id="greetID"></span>
         </form>
     </div>
 
-    <script src = "greetingFactory.js"></script>
+    <script src="greetingFactory.js"></script>
     <script src="greet.js"></script>
 
 </body>

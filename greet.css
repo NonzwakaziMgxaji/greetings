@@ -12,8 +12,11 @@ h1{
     color: #3E3F47;
 }
 
-h2{
+.greeting{
     color: #3E3F47;
+    font-weight: bold;
+    font-size: 20px;
+
 }
 
 .textbox{
@@ -31,23 +34,69 @@ input[type="text"]{
     margin-left: 5px;
 }
 
+.counterName{
+    float: right;
+    font-weight: bold;
+    color: #3E3F47;
+    padding-bottom: 80px; 
+}
+
 .counter{
     float: right;
     font-weight: bold;
     transform: scale(2);
+    padding-left: 85px;
+    padding-top: 0px;
 }
 
 form{
     margin: 10px;
 }
 
+.errorMsg{
+    color: red;
+    font-weight: bold;
+    font-size: large;
+}
+
 @media only screen and (min-width: 768px){
     .inputs{
         display: flex;
-        justify-content:space-between;
     }
 
-    input[type="radio"]{
-        transform: scale(2);
+    .radioName{
+        padding-right: 20px; 
+    }
+
+    .greeting{
+        font-weight: bold;
+        font-size: 50px;
+    
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .counterName{
+        padding-top: 40px; 
+    }
+    .counter{
+        padding-left: 85px;
+        padding-top: 30px;
+    }
+}
+
+@media only screen and (max-width:320px){
+    .inputs{
+        padding-top: 112px;
+    }
+    
+    .counterName{
+        float: left;
+        padding: 0;
+        padding-top: 40px; 
+    }
+    .counter{
+        padding-right: 150px;
+        /* padding-top: 30px; */
     }
 }

@@ -7,70 +7,54 @@ var reset = document.querySelector(".resetBtn");
 var error = document.querySelector(".errorMsg");
 
 var existingNames;
-var namesGreeted = existingNames || {};
-var greetCounter = 0;
 
-let greetInst = greetFactory();
+//retrieve the values stored in local storage
+if (localStorage['names']) {
+  existingNames = JSON.parse(localStorage.getItem('names'));
+}
+
+let greetInst = greetFactory(existingNames);
+
+
 button.addEventListener("click", function () {
   var greeting = greet.value;
 
   var rad = document.querySelector("input[name='language']:checked");
   if (rad && nameEntered.value) {
     var selectedRad = rad.value;
-
+    error.innerHTML = "";
     greetInst.nameVal(nameEntered.value);
     namesGreeted = greetInst.getNameGreeted();
     greeting = greetInst.setGreeting(nameEntered.value, selectedRad);
     greetCounter = greetInst.getCounter();
-    
-    localStorage.setItem('names', JSON.stringify(namesGreeted));
-    
-    // greeting = "";
-    error.innerHTML = ''
-    //alert if radio buttons are not selected and name fields are empty
-  } else {
-    if (!rad && !nameEntered.value) {
-      // error.innerHTML = ('Please select a language & enter your name!');
-    error.innerHTML =  setTimeout(function(){  }, 3000);
 
-      // function myFunction(){
-      //   alert("a");
-      // }
-      // error.innerHTML = myFunction();
-      // setTimeout(function(){$('errorMessage').hide()},1000);
-      // greeting = "";
-    } else if (!rad) {
-     error.innerHTML = 'Please select a language';
-      greeting = "";
-    } else if (!nameEntered.value && rad) {
-      error.innerHTML = 'please enter name to continue'
-      greeting = "";
-    }
+    //store names greeted as object in local storage
+    localStorage.setItem('names', JSON.stringify(namesGreeted));
+
+    //alert if radio buttons are not selected and name fields are empty
+  } else if (!rad && !nameEntered.value) {
+    error.innerHTML = 'PLEASE ENTER YOUR NAME AND SELECT A LANGUAGE!';
+    greeting = "";
+  } else if (!rad) {
+    error.innerHTML = 'PLEASE SELECT A LANGUAGE!';
+    greeting = "";
+  } else if (!nameEntered.value && rad) {
+    error.innerHTML = 'PLEASE ENTER YOUR NAME TO CONTINUE!'
+    greeting = "";
   }
 
   //display the greeting or contents of greet and HTML element 
   greet.innerHTML = greeting;
-  count.innerHTML = greetCounter;
+  count.innerHTML = greetInst.getCounter();
 
   //clear textbox once button is clicked
   nameEntered.value = "";
 });
 
-//retrieve the values stored in local storage
-if (localStorage['names']) {
-  existingNames = localStorage.getItem('names', JSON.parse(localStorage['names']));
-}
-
-// objects keys method returns an array of a given object's own enumerable property names
-// function counter() {
-//   var key = Object.keys(namesGreeted);
-//   return key.length;
-// }
-// counter();
+count.innerHTML = greetInst.getCounter();
 
 //resets counter to zero
 reset.addEventListener("click", function () {
   location.reload();
   localStorage.clear();
 });
-
