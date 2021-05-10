@@ -49,6 +49,14 @@ button.addEventListener("click", function () {
 
   //clear textbox once button is clicked
   nameEntered.value = "";
+
+  // setTimeout(function(){
+  //   $('#errorMessage').remove();
+  // }, 3000);
+
+  setTimeout(function(){
+    error.innerHTML = "";
+  }, 1500);
 });
 
 count.innerHTML = greetInst.getCounter();
